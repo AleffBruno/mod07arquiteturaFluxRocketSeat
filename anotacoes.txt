@@ -1,0 +1,10 @@
+Como funciona o Redux {
+    > Dispara-se uma action , que é um objeto que tem obrigatoriamente a chave type com o seu valor(UNICO), as outras chaves sao os 'valores' da action {
+        ex: { type: 'ADD_TO_CART ', product: {id:1,name:'lapis'}}
+    }
+    > esse objeto é enviado para o redux store
+    > dentro do redux store, existem reducers, que é a separação dos estados dentro do reduz store
+    > os reducers recebem a action e realiza a mutação dentro do estado
+    > apos isso, comunica todos os componentes que usam esse estado
+    > RESUMO : actions chamam reducers que mutam o estado
+}
