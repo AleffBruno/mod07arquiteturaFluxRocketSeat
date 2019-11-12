@@ -8,3 +8,7 @@ Como funciona o Redux {
     > apos isso, comunica todos os componentes que usam esse estado
     > RESUMO : actions chamam reducers que mutam o estado
 }
+
+lidando com cor dentro do JS {
+    > $ yarn add polished
+}
