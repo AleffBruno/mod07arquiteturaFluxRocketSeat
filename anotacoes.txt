@@ -19,6 +19,19 @@ API fake para dev/testes {
     > no cenario atual ficaria : yarn json-server server.json -p 3333 -w
 }
 
-internacionalização {
-    > froi criado uma pasta/arquivo em src/util/format.js ( veja o arquivo )
+internacionalização / formatando currency {
+    > foi criado uma pasta/arquivo em src/util/format.js ( veja o arquivo )
+}
+
+redux {
+    > $ yarn add redux react-redux
+    arquitetura de pasta {
+        OBS: nao pode criar um store sem nenhum reducer
+        > foi criado uma pasta/arquivo dentro de src chamada store/index.js, e é onde sera feito a configuração inicial do redux ( veja o arquivo )
+        > cria-se dentro de store, uma pasta modules
+        > cria-se dentro de modules, cria-se o rootReducer.js onde ficarao todos os reducers ( veja o arquivo )
+    }
+    > importe {Provider} do react-redux, dentro de App.js
+    > coloque o 'Provider' em volta de todos os componentes da aplicação
+    > passe como parametro o arquivo de configuração que foi criado acima para a tag Provider ( veja o arquivo App.js )
 }
