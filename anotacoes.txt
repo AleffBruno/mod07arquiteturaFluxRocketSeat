@@ -12,3 +12,13 @@ Como funciona o Redux {
 lidando com cor dentro do JS {
     > $ yarn add polished
 }
+
+API fake para dev/testes {
+    > $ yarn add json-server -D
+    > yarn json-server {nome_do_aquivo.json} -p {numero_porta} -w 
+    > no cenario atual ficaria : yarn json-server server.json -p 3333 -w
+}
+
+internacionalização {
+    > froi criado uma pasta/arquivo em src/util/format.js ( veja o arquivo )
+}
