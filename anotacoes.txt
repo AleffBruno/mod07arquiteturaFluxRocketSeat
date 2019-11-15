@@ -3,7 +3,7 @@ Como funciona o Redux {
         ex: { type: 'ADD_TO_CART ', product: {id:1,name:'lapis'}}
     }
     > esse objeto é enviado para o redux store
-    > dentro do redux store, existem reducers, que é a separação dos estados dentro do reduz store
+    > dentro do redux store, existem reducers, que é a separação dos estados dentro do redux store
     > os reducers recebem a action e realiza a mutação dentro do estado
     > apos isso, comunica todos os componentes que usam esse estado
     > RESUMO : actions chamam reducers que mutam o estado
@@ -23,7 +23,7 @@ internacionalização / formatando currency {
     > foi criado uma pasta/arquivo em src/util/format.js ( veja o arquivo )
 }
 
-redux {
+implementando redux {
     > $ yarn add redux react-redux
     arquitetura de pasta {
         OBS: nao pode criar um store sem nenhum reducer
@@ -34,4 +34,17 @@ redux {
     > importe {Provider} do react-redux, dentro de App.js
     > coloque o 'Provider' em volta de todos os componentes da aplicação
     > passe como parametro o arquivo de configuração que foi criado acima para a tag Provider ( veja o arquivo App.js )
+    > IMPORTANTE: para conectar componentes com o redux, é necessario ao exportalos, colocalos dentro de um 'connect' ( veja o arquivo Home/index.js)
+    > quando um componente tem o connect, em suas props ele agora tem o 'dispatch', que serve para disparar uma action ao redux ( veja o aruivo Home/index.js/handleAddProduct())
+    > quando um dispatch é disparado, TODOS OS REDUCERS SAO CHAMADOS, por isso é necessario colocar um switch dentro dos reducers para 'filtrar' somente oque aquele reducer deve fazer
+    ACESSANDO ESTADOS DE OUTROS COMPONENTES {
+        > coloque no componente desejado o 'connect'
+        > o connect aceita alguns parametros, o primeiro é uma funcao, que recebe um estado e retorna o estado atual do redux {
+            >> ( para saber o nome do reducer, basta olhar no root reducer) <<
+            ex: export default conenct(state => ({
+                    OBJETO_QUE_RECEBE_AS_INFORMAÇÕES: state.NOME_DO_REDUCER 
+                }))(NOME_DO_COMPONENTE)
+        }
+        > pronto, o 'OBJETO_QUE_RECEBE_AS_INFORMAÇÕES' agora esta disponivel nas props
+    }
 }

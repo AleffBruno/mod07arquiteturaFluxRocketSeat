@@ -10,7 +10,7 @@ export const ProductList = styled.ul`
     li {
         display: flex;
         flex-direction: column;
-        background: #fff;
+        background: #ccc;
         border-radius: 4px;
         padding: 20px;
 
