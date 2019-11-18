@@ -42,10 +42,19 @@ implementando redux {
         > o connect aceita alguns parametros, o primeiro é uma funcao, que recebe um estado e retorna o estado atual do redux {
             >> ( para saber o nome do reducer, basta olhar no root reducer) <<
             ex: export default conenct(state => ({
-                    OBJETO_QUE_RECEBE_AS_INFORMAÇÕES: state.NOME_DO_REDUCER 
+                    OBJETO_QUE_RECEBE_AS_INFORMAÇÕES: state.NOME_DO_REDUCER_QUE_QUER_O_ESTADO
                 }))(NOME_DO_COMPONENTE)
         }
         > pronto, o 'OBJETO_QUE_RECEBE_AS_INFORMAÇÕES' agora esta disponivel nas props
+        DICA: o codigo acima é o famoso 'mapStateToProps' {
+            exemplo ( é o mesmo codigo acima so que mais organizado ) :
+
+            const mapStateToProps = state => ({
+                OBJETO_QUE_RECEBE_AS_INFORMAÇÕES: state.NOME_DO_REDUCER_QUE_QUER_O_ESTADO
+            });
+
+            export default conenct(mapStateToProps)(NOME_DO_COMPONENTE)
+        }
     }
 }
 
@@ -54,4 +63,8 @@ debug {
     > Cria- uma pasta config, e dentro dela um arquivo ReactotronConfig.js ( veja o arquivo )
     > é necessario nas configuração do redux(src/store/index.js) habilitar createEnhancer() ( veja o arquivo )
     > apos isso, va em App.js e importe as configurações do reactotron ( de preferencia que seja umas das primeira importações )
+}
+
+manipulando estados imutaveis para mutaveis {
+    $ yarn add immer
 }
