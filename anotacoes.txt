@@ -48,3 +48,10 @@ implementando redux {
         > pronto, o 'OBJETO_QUE_RECEBE_AS_INFORMAÇÕES' agora esta disponivel nas props
     }
 }
+
+debug {
+    $ yarn add reactotron-react-js reactotron-redux
+    > Cria- uma pasta config, e dentro dela um arquivo ReactotronConfig.js ( veja o arquivo )
+    > é necessario nas configuração do redux(src/store/index.js) habilitar createEnhancer() ( veja o arquivo )
+    > apos isso, va em App.js e importe as configurações do reactotron ( de preferencia que seja umas das primeira importações )
+}
