@@ -56,6 +56,14 @@ implementando redux {
             export default conenct(mapStateToProps)(NOME_DO_COMPONENTE)
         }
     }
+    > mapDispatchToProps, diferente do mapStateToProps, este converte ACTIONS do redux em props do componente ( veja o arquivo src\pages\Home\index.js) {
+        dica: em 'connect', se nao existir mapStateToProps, o primeiro parametro vai como null
+        ex: export default connect(null, mapDispatchToProps)(NOME_DO_COMPONENTE);
+
+        >>> AGORA AS ACTIONS ESTAO NAS PROPS
+        ex: props.addToCart (veja o arquivo src\pages\Home\index.js)
+    }
+    
 }
 
 debug {
