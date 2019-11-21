@@ -71,8 +71,55 @@ debug {
     > Cria- uma pasta config, e dentro dela um arquivo ReactotronConfig.js ( veja o arquivo )
     > é necessario nas configuração do redux(src/store/index.js) habilitar createEnhancer() ( veja o arquivo )
     > apos isso, va em App.js e importe as configurações do reactotron ( de preferencia que seja umas das primeira importações )
+    > uma coisa legal do reactotron e que pode-se 'subscribe' em um reducer para ficar escutando sempre que ele mudar, outra coisa é salvar o estado atual, ai quando a pagina der refresh, basta de-upar o estado antigo;
 }
 
 manipulando estados imutaveis para mutaveis {
     $ yarn add immer
+}
+
+middlewares( com redux-saga ) {
+    > cria-se um arquivo rootSaga.js,armazena todos os sagas dentro de store/modules ( veja o arquivo )
+    > adicione 'createSagaMiddleware' em store/index.js ( veja o arquivo )
+    > adiciona rootSaga.js em store/index.js ( veja o arquivo )
+    > import applyMiddleware, compose from 'redux' em store/index.js ( veja o arquivo )
+    > middleware e um interceptador, mas em vez de interceptar rotas, intercepta actions
+    > sera utilizado o redux-saga
+    > $ yarn add redux-saga
+    > dentro do projeto atual, foi criado um arquivo 'sagas.js' dentro de src/store/modules/cart ( veja o  arquivo )
+    DICA >>>>>> {
+        > 'function*'(nome desse * é generator) , assemelha-se à 'async function', e agora o await torna-se 'yield'
+        > apos usar o yield, caso for uma chamada que seja necessario o 'await', chame em seguida call {
+            > import { call } from 'redux-saga/effects';
+            ex: const response = yield call(api.get, 'products/${id}')
+        }
+    } 
+    > NOVO FLUXO {
+        action chama sagas > sagas processa e chama reducer > reducer faz o processo no state > retorna a resposta
+    }
+    > Para disparar actions com saga, usa-se o put, "import { put } from 'redux-saga/effects'" {
+        ex: 
+        const response = yield call(api.get, 'products/${id}')
+        yield put(addToCartSuccess(response.data));
+    }
+    > COMO DISPARAR FUNÇÕES DE DENTRO DO SAGA {
+        > serao cadastrados 'listeners' que ficarao ouvindo actions
+        > alguns metodos FAMOSOS sao o 'takeLatest' e 'takeEvery' {
+            >>>> os 'timers' sao o tempo de request...
+            > takeLatest = se clica 4x no botao, o saga leva em consideração so o ultimo click
+            > takeEvery = se clica 4x, os 4 click vale
+        }
+        > import { all, takeLatest, takeEvery } from 'redux-saga/effects';
+        > takeLatest(NOME_DA_ACTION_PARA_ESCUTAR, NOME_FUNCAO_PARA_DISPARAR)
+        > export default all([
+            takeLatest('@cart/ADD_REQUEST', addToCart)
+
+        ])
+    }
+}
+
+reactotron-redux-saga {
+    > $ yarn add reactotron-redux-saga
+    > import no config/ReactotronConfig ( veja o arquivo )
+    > ir src/store/index.js 
 }
