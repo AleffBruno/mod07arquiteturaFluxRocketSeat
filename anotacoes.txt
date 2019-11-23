@@ -121,5 +121,7 @@ middlewares( com redux-saga ) {
 reactotron-redux-saga {
     > $ yarn add reactotron-redux-saga
     > import no config/ReactotronConfig ( veja o arquivo )
-    > ir src/store/index.js 
+    > adicionar .use(reactotronSaga())
+    > ir src/store/index.js e criar a funcao sagaMonitor ( veja o arquivo )
+    > depois adicionar a funcao sagaMonitor em createSagaMiddleware
 }
