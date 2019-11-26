@@ -135,3 +135,11 @@ reactotron-redux-saga {
     > ir src/store/index.js e criar a funcao sagaMonitor ( veja o arquivo )
     > depois adicionar a funcao sagaMonitor em createSagaMiddleware
 }
+
+toasty / mensagens / alertas amigaveis {
+    > $ yarn add react-toastify
+    > em App.js, importe { ToastContainer } from 'react-toastify e adicione no 'meio' dos componentes existentes ( veja o arquivo )
+    > alem disso, adicione no global.js ( estilos globais), "import 'react-toastify/dist/ReactToastify.css"
+    > agora pode-se usar "import {toast} from 'react-toastify'", onde é necessario
+    > toast.error('SUA MSG AQUI')
+}
