@@ -79,6 +79,7 @@ manipulando estados imutaveis para mutaveis {
 }
 
 middlewares( com redux-saga ) {
+    > pq usar o saga? saga serve para colocar 'coisas' asyncronas nas actions
     > cria-se um arquivo rootSaga.js,armazena todos os sagas dentro de store/modules ( veja o arquivo )
     > adicione 'createSagaMiddleware' em store/index.js ( veja o arquivo )
     > adiciona rootSaga.js em store/index.js ( veja o arquivo )
@@ -103,17 +104,15 @@ middlewares( com redux-saga ) {
         yield put(addToCartSuccess(response.data));
     }
     > COMO DISPARAR FUNÇÕES DE DENTRO DO SAGA {
-        > serao cadastrados 'listeners' que ficarao ouvindo actions
+        > serao cadastrados 'listeners' dentro do metodo 'all', que ficarao ouvindo actions
         > alguns metodos FAMOSOS sao o 'takeLatest' e 'takeEvery' {
-            >>>> os 'timers' sao o tempo de request...
             > takeLatest = se clica 4x no botao, o saga leva em consideração so o ultimo click
             > takeEvery = se clica 4x, os 4 click vale
         }
         > import { all, takeLatest, takeEvery } from 'redux-saga/effects';
-        > takeLatest(NOME_DA_ACTION_PARA_ESCUTAR, NOME_FUNCAO_PARA_DISPARAR)
+        > sintaxe = takeLatest(NOME_DA_ACTION_PARA_ESCUTAR, NOME_FUNCAO_PARA_DISPARAR)
         > export default all([
             takeLatest('@cart/ADD_REQUEST', addToCart)
-
         ])
     }
     > COMO ACESSAR INFORMAÇÕES DO ESTADO DENTRO DO SAGA {
