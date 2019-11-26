@@ -116,6 +116,16 @@ middlewares( com redux-saga ) {
 
         ])
     }
+    > COMO ACESSAR INFORMAÇÕES DO ESTADO DENTRO DO SAGA {
+        > import { select } from 'redux-saga/effects' : busca informações dentro do estado
+        > select recebe uma funcao que tem o estado como parametro e retorna algo dele
+        > ex: 
+        yield select ((ESTADO) => {return ESTADO.NOME_DO_REDUCER})
+        
+        yield select(
+            (state) => {return state.cart.find(p => p.id === id)}
+        )
+    }
 }
 
 reactotron-redux-saga {
