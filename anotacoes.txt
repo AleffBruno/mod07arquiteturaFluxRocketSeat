@@ -17,6 +17,7 @@ API fake para dev/testes {
     > $ yarn add json-server -D
     > yarn json-server {nome_do_aquivo.json} -p {numero_porta} -w 
     > no cenario atual ficaria : yarn json-server server.json -p 3333 -w
+    > um parametro legal seria o '-d {milesegundos}', ele dá um delay nas chamadas, isso é bpm para testes asyncronos
 }
 
 internacionalização / formatando currency {
@@ -79,6 +80,13 @@ manipulando estados imutaveis para mutaveis {
 }
 
 middlewares( com redux-saga ) {
+    > QUANDO SE USA O SAGA, O CODIGO DE NAVEGAÇÃO ENTRE PAGINAS, FICA DENTRO DO SAGA {
+        $ yarn add history
+        > dentro de services, crie history.js ( veja o arquivo )
+        > id no App.js, importe o history que foi acabado de criar
+        > troque <BrowserRouter>, por <Router history={history}>
+        > agora pode-se navegar com 'import history from 'services/history' , history.push('/cart')
+    }
     > pq usar o saga? saga serve para colocar 'coisas' asyncronas nas actions
     > cria-se um arquivo rootSaga.js,armazena todos os sagas dentro de store/modules ( veja o arquivo )
     > adicione 'createSagaMiddleware' em store/index.js ( veja o arquivo )
