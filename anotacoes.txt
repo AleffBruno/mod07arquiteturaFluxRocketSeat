@@ -64,6 +64,21 @@ implementando redux {
         >>> AGORA AS ACTIONS ESTAO NAS PROPS
         ex: props.addToCart (veja o arquivo src\pages\Home\index.js)
     }
+
+    redux com react-hooks {
+        > RESUMO: useSelector assemelha-se a mapStateToProps e useDispatch assemelha-se a mapDispatchToProps
+        > useSelector {
+            > ao inves de de "import {connect} from 'react-redux'", sera utilizado "import {useSelector} from 'react-redux'",
+            > com isso, as informações nao estarão mais nas props ( anteriormente elas estariam pois era utilizado o mapStateToProps juntamente com o connect)
+            > agora fica: const nomeDaConst = useSelector(state => state.NOME_DO_REDUCER_QUE_QUER_O_ESTADO);
+        }
+        > useDispatch {
+            > ao inves de de "import {connect} from 'react-redux'", sera utilizado "import {useDispatch} from 'react-redux'",
+            > cria-se, const dispatch = useDispatch()
+            > agora para chamar as actions, basta utlizar dispatch(NOME_DA_ACTION);
+            ex: dispatch(CartActions.addToCartRequest(id));
+        }
+    }
     
 }
 
